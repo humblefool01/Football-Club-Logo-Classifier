@@ -73,38 +73,3 @@ data = (data.astype(np.float32) - 127.5)/ 127.5
 data = data.reshape(data.shape[0], 224, 224, 3)
 save_data(data)
 create_labels(labels)
-
-def test_train_split(data):
-    test_samples = list(random.sample(range(0, 300), 60))
-    train_samples = []
-    for i in range(0, 300):
-        if i not in test_samples:
-            train_samples.append(i)
-    print(train_samples)
-
-    temp = []
-    for i in train_samples:
-        temp.append(data[i])
-    train_x = np.asarray(temp)
-    temp = []
-    for i in train_samples:
-        temp.append(labels[i])
-    train_y = np.asarray(temp)
-
-    temp = []
-    for i in test_samples:
-        temp.append(data[i])
-    test_x = np.asarray(temp)
-    temp = []
-    for i in test_samples:
-        temp.append(labels[i])
-    test_y = np.asarray(temp)
-
-    print(train_x.shape)
-    print(train_y.shape)
-    print(test_x.shape)
-    print(test_y.shape)
-
-    return train_x, train_y, test_x, test_y
-
-#train_x, train_y, test_x, test_y = test_train_split(data)
