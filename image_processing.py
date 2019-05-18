@@ -11,10 +11,7 @@ path = os.getcwd()
 os.chdir(path + '/images')
 path = os.getcwd()
 
-total_number_of_images = 200
-
 def resize():
-    #width, height = 512, 512
     width, height = 224, 224  
     for each in os.listdir(path):
         print(each)
@@ -26,7 +23,6 @@ def save_data(data):
     np.save('data.npy', data)
 
 def load_data():
-    #os.chdir(os.pardir)
     data = np.load('data.npy')
     return data
 
